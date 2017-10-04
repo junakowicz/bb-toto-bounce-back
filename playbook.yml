@@ -5,3 +5,4 @@
   become: true
   roles:
     - geerlingguy.nodejs
+    - geerlingguy.mysql

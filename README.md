@@ -4,6 +4,10 @@
 
 Using Vagrant and an official Ubuntu box designed for Virtualbox.
 
+Ansible provisioning for Vagrant.
+
+Nodejs for bot.
+
 ### Installation (Mac OS X)
 
 Install Homebrew:

@@ -1,0 +1,7 @@
+---
+- name: common configuration for all systems
+  hosts: all
+  remote_user: root
+  become: true
+  roles:
+    - geerlingguy.nodejs

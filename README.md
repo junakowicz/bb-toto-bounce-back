@@ -25,3 +25,13 @@ Install Vagrant and Virtualbox:
 Build and launch local dev environment:
 
 `vagrant up`
+
+### Ansible
+
+Downloading new roles is done through vagrant (unless you have Ansible installed on the host).
+
+`vagrant ssh -c "ansible-galaxy install --roles-path /vagrant/roles username.role"`
+
+Where `username.role` is as per https://galaxy.ansible.com/
+
+This will download to the roles directory shared between the vagrant guest and the repo on the host.

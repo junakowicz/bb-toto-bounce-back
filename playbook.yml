@@ -3,6 +3,13 @@
   hosts: all
   remote_user: root
   become: true
+
   roles:
+    - geerlingguy.git
     - geerlingguy.nodejs
     - geerlingguy.mysql
+
+  tasks:
+    - name: install node packages for bot
+      npm:
+        path: /vagrant

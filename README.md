@@ -35,3 +35,24 @@ Downloading new roles is done through vagrant (unless you have Ansible installed
 Where `username.role` is as per https://galaxy.ansible.com/
 
 This will download to the roles directory shared between the vagrant guest and the repo on the host.
+
+
+# lottery Bounce Back
+
+This chatbot helps to run "Bounce Back Lottery".
+
+## Install
+
+Install node.js, clone the repository, then say
+```sh
+npm install
+```
+
+## Run
+```sh
+node toto.js 2>errlog
+```
+
+## Customize
+
+TOR is recommended since you are keeping your private keys online and don't want your IP address to be known. See [core documentation about TOR](../../../byteballcore#confsockshost-confsocksport-and-confsockslocaldns).

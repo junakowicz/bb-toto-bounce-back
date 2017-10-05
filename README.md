@@ -41,13 +41,6 @@ This will download to the roles directory shared between the vagrant guest and t
 
 This chatbot helps to run "Bounce Back Lottery".
 
-## Install
-
-Install node.js, clone the repository, then say
-```sh
-npm install
-```
-
 ## Run
 ```sh
 node toto.js 2>errlog

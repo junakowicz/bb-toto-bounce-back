@@ -11,6 +11,5 @@
 
   tasks:
     - name: install node packages for bot
-      command: npm install --no-bin-links
-      args:
-        chdir: /vagrant
+      npm:
+        path: /vagrant

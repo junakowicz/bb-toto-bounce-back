@@ -1,0 +1,8 @@
+---
+- name: bootstrap ansible roles using requirements.yml
+  hosts: all
+  remote_user: root
+  become: true
+
+  tasks:
+    - command: ansible-galaxy install -r /vagrant/requirements.yml --roles-path=/vagrant/roles

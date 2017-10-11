@@ -60,11 +60,12 @@ Vagrant.configure("2") do |config|
   # View the documentation for the provider you are using for more
   # information on available options.
 
-  # Ensure Ansible roles
-  config.vm.provision "shell", inline: "ansible-galaxy install -r /vagrant/requirements.yml"
-
   # Run Ansible from the Vagrant VM
   # https://www.vagrantup.com/docs/provisioning/ansible_local.html
+  config.vm.provision "ansible_local" do |ansible|
+    ansible.playbook = "playbook-bootstrap.yml"
+  end
+
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "playbook.yml"
   end

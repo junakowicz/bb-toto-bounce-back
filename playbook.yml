@@ -34,3 +34,4 @@
         chdir: /home/vagrant/headless-byteball
         responses:
           (?i)device: ""
+          (?i)passphrase: ""

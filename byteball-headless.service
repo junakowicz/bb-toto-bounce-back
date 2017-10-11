@@ -1,0 +1,15 @@
+[Unit]
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/expect /vagrant/headless-wallet-start.exp
+Restart=always
+User=ubuntu
+Group=ubuntu
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=development
+WorkingDirectory=/home/ubuntu/headless-byteball
+
+[Install]
+WantedBy=multi-user.target

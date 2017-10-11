@@ -26,6 +26,12 @@ Build and launch local dev environment:
 
 `vagrant up`
 
+### Headless wallet
+
+Watch logs:
+
+`vagrant ssh -c "tail -f /home/ubuntu/.config/headless-byteball/log.txt"`
+
 ### Ansible
 
 Downloading new roles is done through vagrant (unless you have Ansible installed on the host).

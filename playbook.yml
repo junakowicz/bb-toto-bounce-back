@@ -26,11 +26,12 @@
     - name: clone headless wallet
       git:
         repo: "https://github.com/byteball/headless-byteball.git"
-        dest: /home/vagrant/headless-byteball
+        dest: /home/ubuntu/headless-byteball
 
     - name: install headless wallet dependencies
       npm:
-        path: /home/vagrant/headless-byteball
+        path: /home/ubuntu/headless-byteball
 
-    - name: start wallet background task
-      command: expect /vagrant/headless-wallet-start.exp
+    - copy:
+        src: /vagrant/byteball-headless.service
+        dest: /lib/systemd/system/byteball-headless.service

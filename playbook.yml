@@ -35,3 +35,8 @@
     - copy:
         src: /vagrant/byteball-headless.service
         dest: /lib/systemd/system/byteball-headless.service
+
+    - systemd:
+        name: byteball-headless
+        daemon_reload: yes
+        state: started

@@ -11,10 +11,6 @@
     - futurice.pip
 
   tasks:
-    - name: python deps
-      pip:
-        name: pexpect
-
     - name: expect dep
       apt:
         name: expect

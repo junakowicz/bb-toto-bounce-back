@@ -1,0 +1,16 @@
+#!/usr/bin/expect
+
+# exp_internal 1
+
+set timeout -1
+
+spawn node /home/vagrant/headless-byteball/start.js
+
+expect "Passphrase:"
+send "\r"
+
+# expect "release the terminal"
+# send ^Z
+
+expect -re "(?i)error"
+exit 0

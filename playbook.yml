@@ -15,6 +15,10 @@
       pip:
         name: pexpect
 
+    - name: expect dep
+      apt:
+        name: expect
+
     - name: install node packages for bot
       npm:
         path: /vagrant
@@ -29,9 +33,4 @@
         path: /home/vagrant/headless-byteball
 
     - name: start wallet background task
-      expect:
-        command: node start.js
-        chdir: /home/vagrant/headless-byteball
-        responses:
-          (?i)device: ""
-          (?i)passphrase: ""
+      command: expect /vagrant/headless-wallet-start.exp

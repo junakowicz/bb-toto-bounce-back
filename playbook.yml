@@ -11,6 +11,14 @@
 
   tasks:
     - name: install node packages for bot
-      command: npm install --no-bin-links
-      args:
-        chdir: /vagrant
+      npm:
+        path: /vagrant
+
+    - name: clone headless wallet
+      git:
+        repo: "https://github.com/byteball/headless-byteball.git"
+        dest: /home/vagrant/headless-byteball
+
+    - name: install headless wallet dependencies
+      npm:
+        path: /home/vagrant/headless-byteball

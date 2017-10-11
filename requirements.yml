@@ -1,0 +1,4 @@
+- src: geerlingguy.git
+- src: geerlingguy.nodejs
+- src: geerlingguy.mysql
+- src: futurice.pip

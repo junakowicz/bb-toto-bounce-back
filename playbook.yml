@@ -8,8 +8,13 @@
     - geerlingguy.git
     - geerlingguy.nodejs
     - geerlingguy.mysql
+    - futurice.pip
 
   tasks:
+    - name: python deps
+      pip:
+        name: pexpect
+
     - name: install node packages for bot
       npm:
         path: /vagrant
@@ -22,3 +27,10 @@
     - name: install headless wallet dependencies
       npm:
         path: /home/vagrant/headless-byteball
+
+    - name: start wallet background task
+      expect:
+        command: node start.js
+        chdir: /home/vagrant/headless-byteball
+        responses:
+          (?i)device: ""

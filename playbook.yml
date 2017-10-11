@@ -8,7 +8,6 @@
     - geerlingguy.git
     - geerlingguy.nodejs
     - geerlingguy.mysql
-    - futurice.pip
 
   tasks:
     - name: expect dep

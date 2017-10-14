@@ -1,0 +1,20 @@
+#!/usr/bin/expect
+
+# https://www.tcl.tk/man/expect5.31/expect.1.html
+
+# exp_internal 1
+
+set timeout -1
+
+spawn node /home/ubuntu/headless-byteball/start.js
+
+expect {
+  -re "(?i)(passphrase|device|keys)" {
+    send "\r"
+    exp_continue
+  }
+  "release the terminal"
+}
+
+expect -re "(?i)error"
+exit 0

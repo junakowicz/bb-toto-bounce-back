@@ -2,3 +2,5 @@
 playbook.retry
 node_modules
 npm-debug.log
+roles
+*.log

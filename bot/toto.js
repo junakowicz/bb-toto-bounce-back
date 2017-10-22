@@ -79,13 +79,24 @@ function setupChatEventHandlers(){
 		}
 	});
 
-	// event doesn't occur in light wallet
-	// eventBus.on('new_my_transactions', function(arrUnits){
-	// });
+	// event doesn't occur in light wallet  <- WRONG!!! That's new. Cool! :)
+	eventBus.on('new_my_transactions', function(arrUnits){
+		var x = 1;
+	});
 
 	// event doesn't occur in light wallet
-	// eventBus.on('my_transactions_became_stable', function(arrUnits){
-	// });
+	eventBus.on('my_transactions_became_stable', function(arrUnits){
+		var x = 1;
+	});
+
+	// This is new, too.
+	// After first test, occurs when a transaction becomes stable.
+	// Maybe it occurs more often, too, but without reason. 
+	// Nevertheless it can be used for polling.
+	// arrUnits is empty when it occurs, so db needs to be looked up
+	eventBus.on('maybe_new_transactions', function(arrUnits){
+		var x = 1;
+	});
 }
 
 
@@ -172,6 +183,10 @@ function handleText(from_address, text){
 			showMainMenu(from_address);
 			break;
 
+		case 'buy':
+			handleBuyTicket(from_address, wordTwo);
+			break;
+
 		case 'help':
 		case 'cmds':
 			device.sendMessageToDevice(from_address, 'text', normalCommandsInfo);
@@ -202,7 +217,7 @@ function showMainMenu(device_address){
 	var msg = '';
 	msg += '      Lotto Main Menu      \n';
 	msg += '---------------------------\n';
-	msg += '1 - Buy ticket.\n';
+	msg += '1 - [Buy](command:buy) ticket.\n';
 	msg += '2 - Select charity.\n';
 	msg += '3 - My tickets.\n';
 	msg += '4 - Start own lottery.\n';
@@ -240,5 +255,59 @@ function handleCmdDonate(device_address){
 	return device.sendMessageToDevice(device_address, 'text',  msg);
 }
 
-if (require.main === module)
-	setupChatEventHandlers();
+function handleBuyTicket(device_address, ticket_count_text){
+
+	var device = require('byteballcore/device.js');
+	
+	var buyCmdInfo = "Buy command:";
+	buyCmdInfo += "\n[buy](command:buy): buy 1 ticket";
+	buyCmdInfo += "\n[buy n](command:buy): buy n tickets";
+
+	var ticket_count = 1;
+	
+	if(ticket_count_text && ticket_count_text != ''){
+		ticket_count = Number.parseInt(ticket_count_text);
+		if (Number.isNaN(ticket_count)) {
+			return device.sendMessageToDevice(device_address, 'text', "'"+ticket_count_text+"' is not a number. \n"+buyCmdInfo);
+		}
+	}
+
+	if (ticket_count<=0) {
+		return device.sendMessageToDevice(device_address, 'text', ticket_count+" must be a positiv number. \n"+buyCmdInfo);
+	}
+
+	headless.issueNextMainAddress(function(address){
+		const price = 1000000;
+		var msg = 'You want to buy '+ticket_count+' ticket'+((ticket_count>1)?'s':'')+' .';
+		msg += '\nPlease pay: ' + toFormattedBytes(price*ticket_count);
+		msg += '\n['+toFormattedBytes(price*ticket_count)+'](byteball:'+address+'?amount='+price*ticket_count+')';
+	
+		return device.sendMessageToDevice(device_address, 'text',  msg);
+	});
+}
+
+// **********************************
+// helper functions
+// **********************************
+
+function toFormattedBytes(amount) {
+	if(amount < 1000){
+		return amount + ' bytes';
+	}
+	else if (amount < 1000000){
+		return round((amount / 1000),1) + ' kB';
+	}
+	else if (amount < 1000000000){
+		return round((amount / 1000000),1) + ' MB';
+	}
+	else{
+		return round((amount / 1000000000),1) + ' GB';
+	}
+}
+
+function round(value, precision) {
+    var multiplier = Math.pow(10, precision || 0);
+    return Math.round(value * multiplier) / multiplier;
+}
+
+if (require.main === module) setupChatEventHandlers();

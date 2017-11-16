@@ -7,7 +7,6 @@
   roles:
     - geerlingguy.git
     - geerlingguy.nodejs
-    - geerlingguy.mysql
 
   tasks:
     - name: expect dep

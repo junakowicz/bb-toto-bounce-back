@@ -18,7 +18,7 @@
     "url": "https://github.com/junakowicz/bb-toto-bounce-back/issues"
   },
   "dependencies": {
-    "byteballcore": "^0.2.9",
+    "byteballcore": "file:/home/ubuntu/byteballcore",
     "headless-byteball": "file:/home/ubuntu/headless-byteball",
     "bitcore-lib": "^0.13.14",
     "bitcore-mnemonic": "~1.0.0",

@@ -2,29 +2,24 @@
   "name": "lotto-bot",
   "description": "Byteball Lotto Bot",
   "author": "Byteball",
-  "version": "0.1.8",
+  "version": "0.2.0-alpha1",
   "main": "toto.js",
   "keywords": [
-    "wallet",
-    "headless",
-    "byteball",
-    "full node"
+    "lotto",
+    "bot",
+    "byteball"
   ],
   "license": "MIT",
   "repository": {
-    "url": "git://github.com/byteball/headless-byteball.git",
+    "url": "git@github.com:junakowicz/bb-toto-bounce-back.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/byteball/headless-byteball/issues"
-  },
-  "browser": {
-    "request": "browser-request",
-    "secp256k1": "secp256k1/js"
+    "url": "https://github.com/junakowicz/bb-toto-bounce-back/issues"
   },
   "dependencies": {
-    "byteballcore": "^0.2.9",
-    "headless-byteball": "git+https://github.com/byteball/headless-byteball.git",
+    "byteballcore": "file:/home/ubuntu/byteballcore",
+    "headless-byteball": "file:/home/ubuntu/headless-byteball",
     "bitcore-lib": "^0.13.14",
     "bitcore-mnemonic": "~1.0.0",
     "json-rpc2": "^1.0.2",

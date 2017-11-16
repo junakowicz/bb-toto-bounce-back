@@ -17,6 +17,11 @@
       npm:
         path: /vagrant
 
+    - name: clone byteball core
+      git:
+        repo: "https://github.com/byteball/byteballcore.git"
+        dest: /home/ubuntu/byteballcore
+
     - name: clone headless wallet
       git:
         repo: "https://github.com/byteball/headless-byteball.git"

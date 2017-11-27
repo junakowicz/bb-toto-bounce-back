@@ -1,1 +1,0 @@
-*/20 * * * * cd bounce-back; node check_daemon.js 1>>~/.config/bounce-back/check_daemon.log 2>>~/.config/bounce-back/check_daemon.err

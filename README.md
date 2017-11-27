@@ -26,11 +26,11 @@ Build and launch local dev environment:
 
 `vagrant up`
 
-### Headless wallet
+### Bot
 
 Watch logs:
 
-`vagrant ssh -c "tail -f /home/ubuntu/.config/headless-byteball/log.txt"`
+`vagrant ssh -c "tail -f /home/ubuntu/.config/lotto-bot/log.txt"`
 
 ### Ansible
 

@@ -17,6 +17,11 @@
       npm:
         path: /vagrant/bot
 
+    - name: testnetify bot
+      shell: /vagrant/bot/testnetify.sh
+      args:
+        chdir: /vagrant/bot
+
     - copy:
         src: /vagrant/lotto-bot.service
         dest: /lib/systemd/system/lotto-bot.service

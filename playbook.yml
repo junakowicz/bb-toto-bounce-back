@@ -15,7 +15,7 @@
 
     - name: install node packages for bot
       npm:
-        path: /vagrant
+        path: /vagrant/bot
 
     - name: clone headless wallet
       git:

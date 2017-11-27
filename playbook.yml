@@ -17,20 +17,11 @@
       npm:
         path: /vagrant/bot
 
-    - name: clone headless wallet
-      git:
-        repo: "https://github.com/byteball/headless-byteball.git"
-        dest: /home/ubuntu/headless-byteball
-
-    - name: install headless wallet dependencies
-      npm:
-        path: /home/ubuntu/headless-byteball
-
     - copy:
-        src: /vagrant/byteball-headless.service
-        dest: /lib/systemd/system/byteball-headless.service
+        src: /vagrant/lotto-bot.service
+        dest: /lib/systemd/system/lotto-bot.service
 
     - systemd:
-        name: byteball-headless
+        name: lotto-bot
         daemon_reload: yes
         state: started

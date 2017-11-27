@@ -3,13 +3,13 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/expect /vagrant/headless-wallet-start.exp
+ExecStart=/usr/bin/expect /vagrant/lotto-bot-start.exp
 Restart=always
 User=ubuntu
 Group=ubuntu
 Environment=PATH=/usr/bin:/usr/local/bin
 Environment=NODE_ENV=development
-WorkingDirectory=/home/ubuntu/headless-byteball
+WorkingDirectory=/vagrant/bot
 
 [Install]
 WantedBy=multi-user.target

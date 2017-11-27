@@ -6,7 +6,7 @@
 
 set timeout -1
 
-spawn node /home/ubuntu/headless-byteball/start.js
+spawn node /vagrant/bot/toto.js
 
 expect {
   -re "(?i)(passphrase|device|keys)" {
